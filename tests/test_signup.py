@@ -48,7 +48,6 @@ def test_signup_for_missing_activity_returns_404(client):
         f"/activities/{activity_name}/signup",
         params={"email": email},
     )
-
     # Assert
     assert response.status_code == 404
     assert response.json() == {"detail": "Activity not found"}

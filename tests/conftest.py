@@ -16,6 +16,5 @@ def reset_activities_state():
     original_activities = copy.deepcopy(activities)
 
     yield
-
     activities.clear()
     activities.update(original_activities)
