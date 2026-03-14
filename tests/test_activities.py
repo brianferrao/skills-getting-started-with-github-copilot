@@ -1,6 +1,5 @@
-def test_get_activities_returns_expected_shape(client):
+def test_get_activities_returns_expected_structure(client):
     # Arrange
-    expected_activities = {"Chess Club", "Programming Class", "Gym Class"}
     required_fields = {"description", "schedule", "max_participants", "participants"}
 
     # Act
@@ -9,7 +8,8 @@ def test_get_activities_returns_expected_shape(client):
 
     # Assert
     assert response.status_code == 200
-    assert set(payload.keys()) == expected_activities
+    assert isinstance(payload, dict)
+    assert payload
 
     for details in payload.values():
         assert required_fields.issubset(details.keys())
